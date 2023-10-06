@@ -67,15 +67,19 @@ void execute_command(char *command)
 {
 	char *args[256];
 	int arg_count = 0;
+	char *rest = command;
 
-	char *token = strtok(command, " \n");
-
-	while (token != NULL)
+	while ((args[arg_count] = strsep(&rest, " \n")) != NULL) 
 	{
-		args[arg_count++] = token;
-		token = strtok(NULL, " \n");
+        if (strlen(args[arg_count]) > 0) 
+	{
+        arg_count++;
+        }
+	}
+	if (arg_count == 0)
+       	{
+        return;
 	}
 	args[arg_count] = NULL;
-
 	execute_and_wait(args[0], args);
 }
