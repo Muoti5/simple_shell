@@ -81,5 +81,12 @@ void execute_command(char *command)
         return;
 	}
 	args[arg_count] = NULL;
+	if (strcmp(args[0], "exit") == 0)
+	{
+	exit_command(args, arg_count, command);
+	return;
+	}
+
 	execute_and_wait(args[0], args);
+
 }

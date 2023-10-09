@@ -1,22 +1,17 @@
 #include "shell.h"
-
 /**
- * read_command - This function reads user input and parses the command.
+ * read_command - Function that accepyts user input
  *
- * Return: user input
+ * Return: void
  */
 char *read_command(void)
 {
-	char *line = '\0';
-	size_t bufsize = 0;
+char *line = my_getline();
 
-	ssize_t read_size = getline(&line, &bufsize, stdin);
+if (line == NULL)
+{
+return (NULL);
+}
 
-	if (read_size == -1)
-	{
-		free(line);
-		return (NULL);
-	}
-
-	return (line);
+return (line);
 }
