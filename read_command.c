@@ -12,13 +12,6 @@ if (line == NULL)
 {
 return (NULL);
 }
-	ssize_t read_size = getline(&line, &bufsize, stdin);
-
-	if (read_size == -1)
-	{
-		free(line);
-		return (NULL);
-	}
 
 return (line);
 }
