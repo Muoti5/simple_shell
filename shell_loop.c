@@ -21,6 +21,21 @@ int main(void)
 		}
 
 		if (strlen(read_line) > 1)
+			write(STDOUT_FILENO, "exit\n\n[Disconnected...]\n", 24);
+			break;
+		}
+
+		if (strcmp(read_line, "exit\n") == 0)
+		{
+			exit_shell();
+		}
+
+		else if (strcmp(read_line, "env\n") == 0)
+		{
+			print_environment();
+		}
+
+		else if (strlen(read_line) > 1)
 		{
 			execute_command(read_line);
 		}
