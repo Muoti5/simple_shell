@@ -18,5 +18,5 @@ void execute_command(char *command);
 void free_args(char *args[]);
 char *my_getline();
 void exit_command(char *args[], int arg_count, char *command);
-void custom_strtok(char *input, const char *delimiters, char **tokens, int *num_tokens);
+void _strtok(char *input, const char *delimiters, char **tokens, int *num_tokens);
 #endif

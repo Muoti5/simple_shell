@@ -2,7 +2,7 @@
 #define MAX_TOKENS 64
 #define MAX_TOKEN_SIZE 64
 /**
- * custom_strtok - Function that tokenizes inout string
+ * _strtok - Function that tokenizes inout string
  * @input: pointer to input string being tokenized
  * @delimiters: pointer to string specifying delimiters
  * @tokens: pointer to array of char pointers
@@ -10,20 +10,30 @@
  *
  * Return: Void
  */
-void custom_strtok(char *input, const char *delimiters,
+void _strtok(char *input, const char *delimiters,
 		char **tokens, int *num_tokens)
 {
+int i;
 char *token = strtok(input, delimiters);
+
+if (input == NULL || delimiters == NULL || tokens == NULL || num_tokens == NULL)
+{
+return;
+}
+for (i = 0; i < MAX_TOKENS; i++)
+{
+tokens[i] = NULL;
+}
 *num_tokens = 0;
 
 while (token != NULL)
 {
 if (*num_tokens >= MAX_TOKENS - 1)
 {
-write(2, "Too many tokens", 15);
+fprintf(stderr, "Too many tokens\n");
 exit (1);
 }
-token[(*num_tokens)++] = token;
+tokens[(*num_tokens)++] = token;
 token = strtok(NULL, delimiters);
 }
 }

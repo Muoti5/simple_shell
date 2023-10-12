@@ -67,19 +67,8 @@ void execute_command(char *command)
 {
 	char *args[256];
 	int arg_count = 0;
-	char *rest = command;
-
-	while ((args[arg_count] = strsep(&rest, " \n")) != NULL) 
-	{
-        if (strlen(args[arg_count]) > 0) 
-	{
-        arg_count++;
-        }
-	}
-	if (arg_count == 0)
-       	{
-        return;
-	}
+	
+	_strtok(command, " \n", args, &arg_count);
 	args[arg_count] = NULL;
 	if (strcmp(args[0], "exit") == 0)
 	{
