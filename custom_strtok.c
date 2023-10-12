@@ -1,6 +1,4 @@
 #include "shell.h"
-#define MAX_TOKENS 64
-#define MAX_TOKEN_SIZE 64
 /**
  * _strtok - Function that tokenizes inout string
  * @input: pointer to input string being tokenized

@@ -9,7 +9,7 @@
  */
 void execute_child(char *command, char *args[])
 {
-	if (execve(command, args, NULL) == -1)
+	if (execve(command, args, environ) == -1)
 	{
 		perror("</3 ");
 		exit(-1);

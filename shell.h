@@ -10,6 +10,9 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+#define MAX_TOKENS 64
+#define MAX_TOKEN_SIZE 64
+
 extern char **environ;
 
 char *read_command(void);
@@ -20,8 +23,8 @@ void execute_command(char *command);
 void free_args(char *args[]);
 char *my_getline();
 void exit_command(char *args[], int arg_count, char *command);
-void _strtok(char *input, const char *delimiters, char **tokens, int *num_tokens);
 void exit_shell(void);
+void _strtok(char *input, const char *delimiters,char **tokens, int *num_tokens);
 void print_environment(void);
 char *_getenv(const char *name);
 void handle_exec_error(char* command);

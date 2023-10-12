@@ -9,7 +9,7 @@
 void exit_command(char *args[], int arg_count, char *command)
 {
 int status;
-const char *error_message;
+const char *exit_message = "exit\n\n[Disconnected...]\n";
 
 /**printf("exit_command called with arg_count: %d\n", arg_count); **/
 if (arg_count == 1)
@@ -25,8 +25,8 @@ exit(status);
 }
 else
 {
-error_message = "Usage: exit [status]\n";
-write(STDERR_FILENO, error_message, strlen(error_message));
+write(STDERR_FILENO, exit_message, strlen(exit_message));
+/**exit(0); **/
 free(command);
 }
 }
