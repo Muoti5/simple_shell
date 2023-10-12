@@ -24,6 +24,10 @@ int main(void)
 		{
 			execute_command(read_line);
 		}
+		else if (strcmp(read_line, "env\n") == 0)
+		{
+			print_environment();
+		}
 		
 		free(read_line);
 	} while (1);
