@@ -39,11 +39,14 @@ void execute_and_wait(char *command, char *args[])
 	pid_t pid;
 	int status;
 
+	char **exec_args = create_exec_args(args);
+
 	pid = fork();
 
 	if (pid == 0)
 	{
-		execute_child(command, args);
+		execute_child(command, exec_args);
+		free_exec_args(exec_args);
 	}
 	else if (pid < 0)
 	{
@@ -52,8 +55,13 @@ void execute_and_wait(char *command, char *args[])
 	else
 	{
 		do {
-			waitpid(pid, &status, WUNTRACED);
+			if (waitpid(pid, &status, WUNTRACED) == -1)
+			{
+				perror("</3 ");
+				exit(-1);
+			}
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		free_exec_args(exec_args);
 	}
 }
 
@@ -67,8 +75,15 @@ void execute_command(char *command)
 {
 	char *args[256];
 	int arg_count = 0;
-	
-	_strtok(command, " \n", args, &arg_count);
+	char *token;
+    char *save_ptr = NULL;
+    token = custom_strtok(command, " \n", &save_ptr);
+
+    while (token != NULL) {
+        args[arg_count++] = token;
+        token = custom_strtok(NULL, " \n", &save_ptr);
+    }
+
 	args[arg_count] = NULL;
 	if (strcmp(args[0], "exit") == 0)
 	{
@@ -76,6 +91,5 @@ void execute_command(char *command)
 	return;
 	}
 
-	execute_and_wait(args[0], args);
-
+	execute_with_path(args[0], args);
 }

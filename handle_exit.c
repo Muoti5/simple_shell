@@ -25,7 +25,7 @@ exit(status);
 }
 else
 {
-write(STDERR_FILENO, exit_message, strlen(exit_message));
+write(STDOUT_FILENO, exit_message, strlen(exit_message));
 /**exit(0); **/
 free(command);
 }

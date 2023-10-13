@@ -8,30 +8,26 @@
  *
  * Return: Void
  */
-void _strtok(char *input, const char *delimiters,
-		char **tokens, int *num_tokens)
-{
-int i;
-char *token = strtok(input, delimiters);
+char *custom_strtok(char *str, const char *delim, char **save_ptr) {
+    char *token;
 
-if (input == NULL || delimiters == NULL || tokens == NULL || num_tokens == NULL)
-{
-return;
-}
-for (i = 0; i < MAX_TOKENS; i++)
-{
-tokens[i] = NULL;
-}
-*num_tokens = 0;
+    if (str != NULL) {
+        *save_ptr = str;
+    }
 
-while (token != NULL)
-{
-if (*num_tokens >= MAX_TOKENS - 1)
-{
-fprintf(stderr, "Too many tokens\n");
-exit (1);
-}
-tokens[(*num_tokens)++] = token;
-token = strtok(NULL, delimiters);
-}
+    *save_ptr += strspn(*save_ptr, delim);
+
+    if (**save_ptr == '\0') {
+        return NULL;
+    }
+
+    token = *save_ptr;
+
+    *save_ptr += strcspn(*save_ptr, delim);
+
+    if (**save_ptr != '\0') {
+        *(*save_ptr)++ = '\0';
+    }
+
+    return token;
 }
