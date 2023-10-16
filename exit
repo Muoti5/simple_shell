@@ -1,0 +1,14 @@
+#include "shell.h"
+
+/**
+ * exit_shell - This function handles the exit built-in command
+ * @status: exit status
+ * 
+ * Return: void
+ */
+void exit_shell(int status)
+{
+	const char *exit_message = "exit\n\n[Disconnected...]\n";
+	write(1, exit_message, strlen(exit_message));
+	exit(status);
+}

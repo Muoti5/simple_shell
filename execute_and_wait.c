@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * execute_and_wait - This function forks processes 
+ * execute_and_wait - This function forks processes
  * @command: command
  * @args: arguments
  * Return: void

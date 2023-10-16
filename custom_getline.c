@@ -9,6 +9,8 @@ static size_t buff_size;
  *
  * Return: A pointer to the read line, or NULL on end-of-file or error.
  */
+#define MAX_LINE_LENGTH 1024
+
 char *my_getline()
 {
 ssize_t x;
@@ -29,6 +31,7 @@ exit(EXIT_FAILURE);
 }
 if (x == 0)
 {
+free(line);
 return (NULL);
 }
 buff_size = x;
@@ -48,8 +51,7 @@ exit(EXIT_FAILURE);
 memcpy(newline, buffer, buf_position);
 newline[buf_position - 1] = '\0';
 free(line);
-line = newline;
-return (line);
+return (newline);
 }
 }
 newbuf = malloc(length + buff_size + 1);

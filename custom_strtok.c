@@ -1,33 +1,30 @@
 #include "shell.h"
 /**
- * _strtok - Function that tokenizes inout string
- * @input: pointer to input string being tokenized
- * @delimiters: pointer to string specifying delimiters
- * @tokens: pointer to array of char pointers
- * @num_tokens: pointer to integer that stores no of tokens
+ * custom_strtok - Function that tokenizes inout string
+ * @str: pointer to input string being tokenized
+ * @delim: pointer to string specifying delimiters
+ * @save_ptr: pointer to pointer char input
  *
- * Return: Void
+ * Return: tokenized characters
  */
-char *custom_strtok(char *str, const char *delim, char **save_ptr) {
-    char *token;
+char *custom_strtok(char *str, const char *delim, char **save_ptr)
+{
+char *token;
 
-    if (str != NULL) {
-        *save_ptr = str;
-    }
-
-    *save_ptr += strspn(*save_ptr, delim);
-
-    if (**save_ptr == '\0') {
-        return NULL;
-    }
-
-    token = *save_ptr;
-
-    *save_ptr += strcspn(*save_ptr, delim);
-
-    if (**save_ptr != '\0') {
-        *(*save_ptr)++ = '\0';
-    }
-
-    return token;
+if (str != NULL)
+{
+*save_ptr = str;
+}
+*save_ptr += strspn(*save_ptr, delim);
+if (**save_ptr == '\0')
+{
+return (NULL);
+}
+token = *save_ptr;
+*save_ptr += strcspn(*save_ptr, delim);
+if (**save_ptr != '\0')
+{
+*(*save_ptr)++ = '\0';
+}
+return (token);
 }

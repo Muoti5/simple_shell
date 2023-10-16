@@ -25,7 +25,6 @@ void execute_child(char *command, char *args[])
 void handle_error(void)
 {
 	perror("</3 ");
-	return;
 }
 
 /**
@@ -38,15 +37,20 @@ void execute_command(char *command)
 {
 	char *args[256];
 	int arg_count = 0;
+	char *save_ptr;
+	char *token = custom_strtok(command, " \t\n", &save_ptr);
 
-	char *token = strtok(command, " \t\n");
 
 	while (token != NULL && arg_count < 255)
 	{
 		args[arg_count++] = token;
-		token = strtok(NULL, " \t\n");
+		token = custom_strtok(NULL, " \t\n", &save_ptr);
 	}
 	args[arg_count] = NULL;
+	if (strcmp(args[0], "exit") == 0)
+	{
+		exit_shell(args, command);
+	}
 
 	if (arg_count > 0)
 	{

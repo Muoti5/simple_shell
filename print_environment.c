@@ -9,7 +9,7 @@ void print_environment(void)
 {
 	char **env = environ;
 
-	while(*env)
+	while (*env)
 	{
 		write(1, *env, strlen(*env));
 		write(1, "\n", 1);

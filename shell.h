@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
+#include <stddef.h>
+#include <stdbool.h>
 #include <sys/wait.h>
 
 extern char **environ;
@@ -15,9 +17,11 @@ void execute_child(char *command, char *args[]);
 void handle_error(void);
 void execute_command(char *command);
 void free_args(char *args[]);
-void exit_shell(void);
 void print_environment(void);
+void exit_shell(char *args[], char *command);
 char *_getenv(const char *name);
+char *custom_strtok(char *str, const char *delim, char **save_ptr);
+char *my_getline();
 void execute_with_path(char* command, char *args[]);
 void execute_and_wait(char *command, char *args[]);
 
