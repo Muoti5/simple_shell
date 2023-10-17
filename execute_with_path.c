@@ -10,12 +10,16 @@ void execute_with_path(char *command, char *args[])
 {
 	if (command[0] == '/')
 	{
-		execute_and_wait(command, args);
+		if (access(command, F_OK | X_OK) == 0)
+			execute_and_wait(command, args);
+		else
+			handle_error();
 	}
 	else
 	{
-		char *path = _getenv("PATH");
-		 char *token = strtok(path, ":");
+		char *path = strdup(_getenv("PATH"));
+		char *token = strtok(path, ":");
+		int found = 0;
 
 		while (token != NULL)
 		{
@@ -24,15 +28,17 @@ void execute_with_path(char *command, char *args[])
 			_strcpy(full_path, token);
 			_strcat(full_path, "/");
 			_strcat(full_path, command);
-			if (access(full_path, X_OK) == 0)
+			if (access(full_path, F_OK | X_OK) == 0)
 			{
 				execute_and_wait(full_path, args);
+				found = 1;
 				free(full_path);
-				return;
+				break;
 			}
 			free(full_path);
 			token = strtok(NULL, ":");
 		}
-		handle_error();
+		if (!found)
+			handle_error();
 	}
 }
