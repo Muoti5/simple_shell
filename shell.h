@@ -24,6 +24,8 @@ char *custom_strtok(char *str, const char *delim, char **save_ptr);
 char *my_getline();
 void execute_with_path(char* command, char *args[]);
 void execute_and_wait(char *command, char *args[]);
+void InteractiveShell();
+void NonInteractiveShell();
 
 /** String handlers **/
 unsigned int _strspn(char *s, const char *accept);
