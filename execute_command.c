@@ -47,7 +47,7 @@ void execute_command(char *command)
 		token = custom_strtok(NULL, " \t\n", &save_ptr);
 	}
 	args[arg_count] = NULL;
-	if (strcmp(args[0], "exit") == 0)
+	if (_strcmp(args[0], "exit") == 0)
 	{
 		exit_shell(args, command);
 	}
