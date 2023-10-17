@@ -2,7 +2,7 @@
 
 /**
  * _getenv - This function takes a string pointer 'name' and returns a pointer
- * to a character representing the value of the environment variable
+ * to a character representing the value of the environment variable.
  *
  * @name: string pointer representing the environment variable name
  *
