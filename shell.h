@@ -26,13 +26,14 @@ void execute_with_path(char* command, char *args[]);
 void execute_and_wait(char *command, char *args[]);
 
 /** String handlers **/
-size_t _strspn(const char *str, const char *set);
+unsigned int _strspn(char *s, const char *accept);
 size_t _strcspn(const char *str, const char *reject);
-int _strcmp(const char *str1, const char *str2);
+int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
-size_t _strlen(const char *src);
-char *_strcat(char *dest, const char *src);
+int _strlen(const char *s);
+char *_strcat(char *dest, char *src);
 int _atoi(char *s);
 int _strncmp(const char *str1, const char *str2, size_t n);
+char *_memcpy(char *dest, char *src, unsigned int n);
 
 #endif

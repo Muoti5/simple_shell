@@ -8,11 +8,10 @@
 char *read_command(void)
 {
 	char *line = '\0';
-	size_t bufsize = 0;
 
-	ssize_t read_size = getline(&line, &bufsize, stdin);
+	line = my_getline();
 
-	if (read_size == -1)
+	if (line == NULL)
 	{
 		free(line);
 		return (NULL);

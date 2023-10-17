@@ -1,39 +1,34 @@
 #include "shell.h"
-
 /**
- * _strspn - This function iterates through the input string and counts the
- * number of characters at the beginning of the string present in specified set
- * of characters
+ * _strspn - This function gets the length of a prefix substring.
  *
- * @str: String
- * @set: character set to be searched for in the input string
- * Return: count
+ * @s: String 1
+ * @accept: String 2
+ *
+ * Return: No. of bytes in string s in string accept
  */
-size_t _strspn(const char *str, const char *set)
+unsigned int _strspn(char *s, const char *accept)
 {
-	int found;
-	size_t count = 0;
+	int a, b, c;
 
-	while (*str)
+	a = 0;
+	c = 0;
+
+	while (s[a] != '\0')
 	{
-		const char *ch;
-		found = 0;
-
-		for (ch = set; *ch; ch++)
+		b = 0;
+		while (accept[b] != '\0')
 		{
-			if (*str == *ch)
+			if (s[a] == accept[b])
 			{
-				found = 1;
+				c++;
 				break;
 			}
+			b++;
 		}
-		if (!found)
-		{
+		if (accept[b] == '\0')
 			break;
-		}
-		str++;
-		count++;
+		a++;
 	}
-
-	return (count);
+	return (c);
 }

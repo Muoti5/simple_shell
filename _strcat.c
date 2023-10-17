@@ -1,28 +1,28 @@
 #include "shell.h"
-
 /**
- * _strcat - Concatenates dset string to the source string
- * @dest: Destination string
- * @src: Source string
- * Return: Concatenated string
+ * _strcat - This function concatenates two strings.
+ *
+ * @dest: String 1
+ * @src: String 2
+ *
+ * Return: string dest
  */
-char *_strcat(char *dest, const char *src)
+
+char *_strcat(char *dest, char *src)
 {
-	char *ptr = dest;
+        int j = 0, i;
 
-	while (*ptr != '\0')
-	{
-		ptr++;
-	}
+        while (dest[j])
+        {
+                j++;
+        }
 
-	while (*src != '\0')
-	{
-		*ptr = *src;
-		ptr++;
-		src++;
-	}
+        for (i = 0; src[i] != 0; i++)
+        {
+                dest[j] = src[i];
+                j++;
+        }
 
-	*ptr = '\0';
-
-	return (dest);
+        dest[j] = '\0';
+        return (dest);
 }

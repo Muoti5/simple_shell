@@ -2,17 +2,20 @@
 
 /**
  * _strlen - This function calculates the length of a null-terminated string
- * @str: String
+ * @s: String
  * Return: Length of the string
  */
-size_t _strlen(const char *str)
+int _strlen(const char *s)
 {
-	const char *s = str;
+	int d;
 
-	while (*s)
+	d = 0;
+
+	while (*s != '\0')
 	{
+		d++;
 		s++;
 	}
 
-	return (s - str);
+	return (d);
 }

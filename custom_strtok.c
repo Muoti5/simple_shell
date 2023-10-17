@@ -21,7 +21,7 @@ if (**save_ptr == '\0')
 return (NULL);
 }
 token = *save_ptr;
-*save_ptr += _strcspn(*save_ptr, delim);
+*save_ptr += strcspn(*save_ptr, delim);
 if (**save_ptr != '\0')
 {
 *(*save_ptr)++ = '\0';

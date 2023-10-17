@@ -1,22 +1,26 @@
 #include "shell.h"
 
 /**
- * _strcmp - This function iterates through input strings and compares them
- * @str1: String 1
- * @str2: String 2
- * Return: integer
- */
-int strcmp(const char *str1, const char *str2)
+  *_strcmp - compares value of two strings
+  *
+  *@s1: String to be compared
+  *@s2: string to be compared
+  *
+  *Return: value of comparison
+  */
+
+int _strcmp(char *s1, char *s2)
 {
-	while (*str1 != '\0' && *str2 != '\0')
+	int c, v;
+
+	c = 0;
+
+	while (s1[c] == s2[c] && s1[c] != '\0')
 	{
-		if (*str1 != *str2)
-		{
-			return (*str1 - *str2);
-		}
-		str1++;
-		str2++;
+		c++;
 	}
 
-	return (*str1 - *str2);
+	v = s1[c] - s2[c];
+
+	return (v);
 }
