@@ -33,12 +33,16 @@ void execute_with_path(char *command, char *args[])
 				execute_and_wait(full_path, args);
 				found = 1;
 				free(full_path);
+				free(path);
 				break;
 			}
 			free(full_path);
 			token = strtok(NULL, ":");
 		}
 		if (!found)
+		{
+			free(path);
 			handle_error();
+		}
 	}
 }
