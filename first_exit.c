@@ -3,7 +3,7 @@
 /**
  * first_exit_shell - This function handles the exit built-in command.
  *
- * Return: void
+ * Return: void.
  */
 void first_exit_shell(void)
 {
