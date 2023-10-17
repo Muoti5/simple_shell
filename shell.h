@@ -19,6 +19,7 @@ void execute_command(char *command);
 void free_args(char *args[]);
 void print_environment(void);
 void exit_shell(char *args[], char *command);
+void first_exit_shell (void);
 char *_getenv(const char *name);
 char *custom_strtok(char *str, const char *delim, char **save_ptr);
 char *my_getline();

@@ -36,6 +36,10 @@ if (read_line == NULL)
 write(STDOUT_FILENO, "exit\n\n[Disconnected...]\n", 24);
 break;
 }
+if (strcmp(read_line, "exit\n") == 0)
+{
+first_exit_shell();
+}
 else if (strcmp(read_line, "env\n") == 0)
 {
 print_environment();
@@ -60,6 +64,10 @@ read_line = read_command();
 if (read_line == NULL)
 {
 break;
+}
+else if (strcmp(read_line, "exit\n") == 0)
+{
+first_exit_shell();
 }
 else if (strcmp(read_line, "env\n") == 0)
 {
