@@ -19,11 +19,11 @@ if (read_line == NULL)
 write(STDOUT_FILENO, "exit\n\n[Disconnected...]\n", 24);
 break;
 }
-else if (_strcmp(read_line, "env\n") == 0)
+else if (strcmp(read_line, "env\n") == 0)
 {
 print_environment();
 }
-else if (_strlen(read_line) > 1)
+else if (strlen(read_line) > 1)
 {
 execute_command(read_line);
 }
