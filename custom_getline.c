@@ -4,7 +4,8 @@ char *my_getline();
 static char buffer[MAX_LINE_LENGTH];
 static size_t buf_position;
 static size_t buff_size;
-/*
+
+/**
  * my_getline -function that reads a line of text from STDIN
  *
  * Return: A pointer to the read line, or NULL on end-of-file or error.
