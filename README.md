@@ -26,5 +26,3 @@ $ cat test_ls_2
 /bin/ls
 /bin/ls
 $
-
-
