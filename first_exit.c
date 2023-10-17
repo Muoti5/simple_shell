@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * first_exit_shell - This function handles the exit built-in command
+ * first_exit_shell - This function handles the exit built-in command.
  *
  * Return: void
  */
