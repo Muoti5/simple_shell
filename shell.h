@@ -22,10 +22,10 @@ void exit_shell(char *args[], char *command);
 char *_getenv(const char *name);
 char *custom_strtok(char *str, const char *delim, char **save_ptr);
 char *my_getline();
-void execute_with_path(char* command, char *args[]);
+void execute_with_path(char *command, char *args[]);
 void execute_and_wait(char *command, char *args[]);
-void InteractiveShell();
-void NonInteractiveShell();
+void InteractiveShell(void);
+void NonInteractiveShell(void);
 
 /** String handlers **/
 unsigned int _strspn(char *s, const char *accept);

@@ -3,7 +3,7 @@
 /**
  * exit_shell - This function handles the exit built-in command
  * @status: exit status
- * 
+ *
  * Return: void
  */
 void exit_shell(int status)

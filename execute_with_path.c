@@ -29,10 +29,10 @@ void execute_with_path(char *command, char *args[])
 				execute_and_wait(full_path, args);
 				free(full_path);
 				return;
-			}	
+			}
 			free(full_path);
 			token = strtok(NULL, ":");
-		}		
+		}
 		handle_error();
 	}
 }

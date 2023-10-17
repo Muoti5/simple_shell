@@ -22,7 +22,7 @@ return (0);
  *
  * Return: Void
  */
-void InteractiveShell()
+void InteractiveShell(void)
 {
 char *read_line = NULL;
 char prompt[] = "$ ";
@@ -52,10 +52,10 @@ free(read_line);
  *
  * Return: void
  */
-void NonInteractiveShell()
+void NonInteractiveShell(void)
 {
 char *read_line = NULL;
-do{
+do {
 read_line = read_command();
 if (read_line == NULL)
 {
@@ -70,5 +70,5 @@ else if (strlen(read_line) > 1)
 execute_command(read_line);
 }
 free(read_line);
-}while (1);
+} while (1);
 }

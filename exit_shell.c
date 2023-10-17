@@ -2,7 +2,6 @@
 /**
  * exit_shell - Function that handles the exit command
  * @args: array of string input
- * @arg_count: integer inpout
  * @command: pointer to char input
  *
  * Return: Nothing
