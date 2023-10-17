@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * free_args - This function frees arguments
+ * free_args - This function frees arguments.
  * @args: array of arguments
  *
  * Return: void
