@@ -18,7 +18,7 @@ void execute_child(char *command, char *args[])
 }
 
 /**
- * handle_error - This function handles errors and exit in the child process
+ * handle_error - This function handles errors and exit in the child process.
  *
  * Return: void
  */
