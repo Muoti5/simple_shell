@@ -28,7 +28,7 @@ void handle_error(void)
 }
 
 /**
- * execute_command - This function executes a command
+ * execute_command - This function executes a command.
  *
  * @command : pointer to command input
  * Return: void
