@@ -10,7 +10,7 @@ char *read_command(void)
 	char *line = '\0';
 	size_t bufsize = 0;
 
-	ssize_t read_size = custom_getline(&line, &bufsize, stdin);
+	ssize_t read_size = getline(&line, &bufsize, stdin);
 
 	if (read_size == -1)
 	{
