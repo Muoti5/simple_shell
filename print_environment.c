@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * print_environment - This function handles the env built-in command
+ * print_environment - This function handles the env built-in command.
  *
  * Return: void
  */
