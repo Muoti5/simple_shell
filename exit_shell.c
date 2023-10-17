@@ -19,13 +19,13 @@ exit(0);
 }
 else if (args[1] != NULL)
 {
-status = _atoi(args[1]);
+status = atoi(args[1]);
 free(command);
 exit(status);
 }
 else
 {
-write(STDOUT_FILENO, exit_message, _strlen(exit_message));
+write(STDOUT_FILENO, exit_message, strlen(exit_message));
 free(command);
 }
 }

@@ -15,7 +15,7 @@ if (str != NULL)
 {
 *save_ptr = str;
 }
-*save_ptr += _strspn(*save_ptr, delim);
+*save_ptr += strspn(*save_ptr, delim);
 if (**save_ptr == '\0')
 {
 return (NULL);
