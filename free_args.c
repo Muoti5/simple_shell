@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * free_args - This function frees arguments.
  * @args: array of arguments
