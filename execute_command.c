@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * execute_child - This function executes a command in the child process
  * @command: pointer to command
