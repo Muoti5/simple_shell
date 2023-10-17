@@ -15,7 +15,7 @@ void execute_with_path(char *command, char *args[])
 	else
 	{
 		char *path = _getenv("PATH");
-		char *token = custom_strtok(path, ":");
+		 char *token = strtok(path, ":");
 
 		while (token != NULL)
 		{
@@ -31,7 +31,7 @@ void execute_with_path(char *command, char *args[])
 				return;
 			}	
 			free(full_path);
-			token = custom_strtok(NULL, ":");
+			token = strtok(NULL, ":");
 		}		
 		handle_error();
 	}
